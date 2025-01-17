@@ -54,9 +54,6 @@
         web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
       }
 
-      // Set Account
-      web3.eth.defaultAccount = web3.eth.accounts[0];
-
       // Set Contract Abi
       var contractAbi = [
 	{
@@ -93,7 +90,11 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
-]; // Add Your Contract ABI here!!!
+];
+			      // Set Account
+      web3.eth.defaultAccount = web3.eth.accounts[0];
+
+			web3.eth.contract(contractAbi).at(contractAddress)
 
       // Set Contract Address
       var contractAddress = 0xd9145CCE52D386f254917e481eB44e9943F39138; // Add Your Contract address here!!!
